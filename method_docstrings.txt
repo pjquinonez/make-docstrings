@@ -1,0 +1,143 @@
+"""___one_sentence_summarry_of_config_str_to_dict___
+
+___multi_line_summary_of_config_str_to_dict___
+
+Args:
+	config_str (str):
+		___summary_of_config_str___
+Returns:
+	___summary_of_config_str_to_dict_returns___"""
+
+*********************************
+"""___one_sentence_summarry_of_train_model___
+
+___multi_line_summary_of_train_model___
+
+Args:
+	dataset_func (Callable):
+		___summary_of_dataset_func___
+	model (tf.keras.models.Model):
+		___summary_of_model___
+	optimizer (tf.keras.optimizers.Optimizer):
+		___summary_of_optimizer___
+	loss_f (Callable):
+		___summary_of_loss_f___
+	train_metric_f (Callable):
+		___summary_of_train_metric_f___
+	test_metric_f (Callable):
+		___summary_of_test_metric_f___
+	checkpoint_dir (str):
+		___summary_of_checkpoint_dir___
+	epochs (int):
+		___summary_of_epochs___
+	log_metric_batch_idx (int):
+		___summary_of_log_metric_batch_idx___
+	max_checkpoints_to_keep (int):
+		___summary_of_max_checkpoints_to_keep___
+	model_code_file (str):
+		___summary_of_model_code_file___
+	comet_project_name (str):
+		___summary_of_comet_project_name___
+	comet_disabled (bool):
+		___summary_of_comet_disabled___
+	comet_experiment_key (str):
+		___summary_of_comet_experiment_key___
+Returns:
+	___summary_of_train_model_returns___"""
+
+*********************************
+"""___one_sentence_summarry_of_train_step_f___
+
+___multi_line_summary_of_train_step_f___
+
+Args:
+	training_step (tf.Variable):
+		___summary_of_training_step___
+	model (tf.keras.models.Model):
+		___summary_of_model___
+	optimizer (tf.keras.optimizers.Optimizer):
+		___summary_of_optimizer___
+	loss_f (Callable):
+		___summary_of_loss_f___
+	x (tf.data.Dataset):
+		___summary_of_x___
+	y (tf.data.Dataset):
+		___summary_of_y___
+Returns:
+	___summary_of_train_step_f_returns___"""
+
+*********************************
+"""___one_sentence_summarry_of_test_step_f___
+
+___multi_line_summary_of_test_step_f___
+
+Args:
+	model (tf.keras.models.Model):
+		___summary_of_model___
+	x (tf.data.Dataset):
+		___summary_of_x___
+	y (tf.data.Dataset):
+		___summary_of_y___
+Returns:
+	___summary_of_test_step_f_returns___"""
+
+*********************************
+"""___one_sentence_summarry_of_step___
+
+___multi_line_summary_of_step___
+
+Args:
+	training_step (tf.Variable):
+		___summary_of_training_step___
+	step_f (Callable):
+		___summary_of_step_f___
+	save_f (Callable[[None]):
+		___summary_of_save_f___
+	should_log_metric (Callable[[int]):
+		___summary_of_should_log_metric___
+	metric_f (Callable):
+		___summary_of_metric_f___
+	metric_logging_func (Callable):
+		___summary_of_metric_logging_func___
+	batches_in_dataset (int):
+		___summary_of_batches_in_dataset___
+	batch_idx (int):
+		___summary_of_batch_idx___
+	data (tf.data.Dataset):
+		___summary_of_data___
+Returns:
+	___summary_of_step_returns___"""
+
+*********************************
+"""___one_sentence_summarry_of_epoch_f___
+
+___multi_line_summary_of_epoch_f___
+
+Args:
+	training_data (tf.data.Dataset):
+		___summary_of_training_data___
+	train_steps_per_epoch (int):
+		___summary_of_train_steps_per_epoch___
+	train_step_f (Callable):
+		___summary_of_train_step_f___
+	testing_data (tf.data.Dataset):
+		___summary_of_testing_data___
+	test_steps_per_epoch (int):
+		___summary_of_test_steps_per_epoch___
+	test_step_f (Callable):
+		___summary_of_test_step_f___
+	epoch_idx (int):
+		___summary_of_epoch_idx___
+Returns:
+	___summary_of_epoch_f_returns___"""
+
+*********************************
+"""___one_sentence_summarry_of_main___
+
+___multi_line_summary_of_main___
+
+Args:
+	config_file (str):
+		___summary_of_config_file___
+Returns:
+	___summary_of_main_returns___"""
