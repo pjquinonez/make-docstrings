@@ -44,8 +44,12 @@ def header_to_docstring(header: str):
     final_txt = final_txt + "Returns:\n\t___summary_of_" + name + '_returns___"""'
     final_txt = (
         final_txt
-        + "\n# TODO: Document summary of " + name + " function\n"
-        + "\n".join(["# TODO: Document " + param[0] + " parameter" for param in header_split])
+        + "\n# TODO: Document summary of "
+        + name
+        + " function\n"
+        + "\n".join(
+            ["# TODO: Document " + param[0] + " parameter" for param in header_split]
+        )
     )
     return final_txt
 
