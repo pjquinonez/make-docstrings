@@ -1,7 +1,11 @@
+import argparse
+import os
 import sys
 
+# TODO: Make work for class methods
 
-def header_to_docstring(header):
+
+def header_to_docstring(header: str):
     open_p = header.index("(")
     close_p = header.index(")")
     all_params = (
@@ -14,7 +18,7 @@ def header_to_docstring(header):
     name = begin[3:].replace(" ", "")
     header_split = [x.split(":") for x in all_params.split(",")]
     header_split = [x for x in header_split if hasattr(x, "__len__") and len(x) == 2]
-    # TODO: fakebugwebsite.com/555 - Include scenarios where there are multiple datatypes. Ex: Callable[[int], bool]
+    # TODO: Include scenarios where there are multiple datatypes. Ex: Callable[int, bool]
 
     final_txt = (
         '"""___one_sentence_summarry_of_'
@@ -37,18 +41,23 @@ def header_to_docstring(header):
             + param[0]
             + "___\n"
         )
-    final_txt = final_txt + "Returns:\n\t___summary_of_" + name + '_returns___"""\n'
+    final_txt = final_txt + "Returns:\n\t___summary_of_" + name + '_returns___"""'
+    final_txt = (
+        final_txt
+        + "\n"
+        + "\n".join(["#TODO: Document " + param[0] for param in header_split])
+    )
     return final_txt
 
 
-def get_file_txt(path):
+def get_file_txt(path: str):
     f = open(path, "r")
     final_txt = f.read()
     f.close()
     return final_txt
 
 
-def get_all_headers(file_txt):
+def get_all_headers(file_txt: str):
     k = 0
     last = 0
     txt_list = []
@@ -64,18 +73,37 @@ def get_all_headers(file_txt):
     return txt_list
 
 
-def main():
-    path = "./big-morpheus/src/models/train_model.py"
-    txtfile_path = "./method_docstrings.txt"
-    py_txt = get_file_txt(path)
+def get_filename(file_path: str):
+    file = os.path.basename(file_path)
+    file_name = file[: file.index(".")]
+    return file_name
+
+
+def main(input_path: str, output_path: str):
+    if not output_path:
+        output_path = "./"
+    output_file_path = os.path.join(
+        output_path, get_filename(input_path) + "_method_docstrings.txt"
+    )
+
+    py_txt = get_file_txt(input_path)
     all_headers = get_all_headers(py_txt)
     txtfile_txt = "\n*********************************\n".join(
         [header_to_docstring(x) for x in get_all_headers(py_txt)]
     )
-    f = open(txtfile_path, "w")
+    f = open(output_file_path, "w")
     f.write(txtfile_txt)
     f.close()
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description="Create txt file including docstring templates"
+    )
+    parser.add_argument("input", help="path for input file")
+    parser.add_argument(
+        "-o", "--output", metavar="", help='path for output file, "./" if None'
+    )
+    args = parser.parse_args()
+    main(input_path=args.input, output_path=args.output)
